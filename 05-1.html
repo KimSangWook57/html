@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form 태그 실습</title>
+        <style>
+            /* 스타일은 아래쪽이 우선이다. */
+            body {
+                padding: 20px;
+            }
+            
+            input[type=text], input[type=password], input[type=email], input[type=tel], input[type=number] {
+                width: 30%;
+                height: 50px;
+                border: solid 1px green;
+                /* padding: 5px; */
+                box-sizing: border-box;
+            }
+
+            label[for] {
+                color: red;
+                display: inline-block;
+                height: 100px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!-- 입력 양식을 작성하는 태그 -->
+        <h1>Form 태그 실습</h1>
+        <!-- form name, id는 중복 불가.-->
+        <!-- 필수 작성 요구 = required -->
+        <form name="myForm" method="get" action="result.html">
+            <!-- 이름 입력 영역 -->
+            <div>
+                <label for="user_name">[이름] :</label> 
+                <input type="text" name="user_name" id="user_name" placeholder="이름을 입력하세요." required>
+            </div>
+            
+            <br><br>
+
+            <!-- 비밀번호 입력 영역(password) -->
+            <div>
+                <label for="user_pw">[비밀번호] :</label>
+                <input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력하세요." maxlength="12" required>
+            </div>
+
+            <br><br>
+
+            <!-- 메일 주소 입력 영역(mail) -->
+            <!-- 커서 적용 = autofocus -->
+            <div>
+                <label for="user_mail">[E-mail] :</label>
+                <input type="email" name="user_mail" id="user_mail" placeholder="이메일 주소를 입력하세요." autofocus>
+            </div>
+
+            <br><br>
+
+            <!-- 학년 선택 영역(radio) -->
+            <!-- 하나를 미리 고르게 해야 할 경우 checked 사용. -->
+            <div>
+                [학년 선택]
+                <input type="radio" name="grade" id="grade1" value="1학년" checked>1학년
+                <input type="radio" name="grade" id="grade2" value="2학년">2학년
+                <!-- 글자를 클릭해도 선택되게 하기. -->
+                <input type="radio" name="grade" id="grade3" value="3학년">
+                <label for="grade3">3학년</label>
+                <input type="radio" name="grade" id="grade4" value="4학년">
+                <label for="grade4">4학년</label>
+            </div>
+
+            <br><br>
+
+            <!-- 신청 과목 선택 영역(checkbox) -->
+            <!-- 미리 고를 대상들에 checked 사용. -->
+            <div>
+                [신청과목] : 
+                <input type="checkbox" name="ck_java" id="ck_java" value="자바" checked>
+                <label for="ck_java">JAVA</label>
+                <input type="checkbox" name="ck_html" id="ck_html" value="웹 제작" checked>
+                <label for="ck_html">HTML</label>
+                <input type="checkbox" name="ck_python" id="ck_python" value="파이썬">
+                <label for="ck_python">python</label>
+                <input type="checkbox" name="ck_uiux" id="ck_uiux" value="UIUX">
+                <label for="ck_uiux">UI/UX</label>
+            </div>
+            
+            <br><br>
+
+            <!-- 학년 선택 영역(select)-->
+            <!-- 디폴트 설정으로 하려면 selected 사용. -->
+            <div>
+                <label for="grade">[학년] : </label>
+                <select name="grade" id="grade">
+                    <option value="1">1학년</option>
+                    <option value="2">2학년</option>
+                    <option value="3">3학년</option>
+                    <option value="4" selected>4학년</option>
+                </select>
+            </div>
+            
+
+            <br><br>
+
+            <!-- 전화번호 입력 영역(tel)-->
+            <div>
+                <label for="user_tel">[전화번호] :</label>
+                <input type="tel" name="user_tel" id="user_tel" placeholder="-기호를 빼고 입력하세요.">
+            </div>
+
+            <br><br>
+
+            <!-- 숫자 입력 영역(number) -->
+            <div>
+                <label for="count">[인원수] : </label>
+                <input type="number" name="count" id="count">명
+            </div>
+
+            <br><br>
+
+            <!-- 날짜 입력 영역 -->
+            <div>
+                <label for="date">[제출일]</label>
+                <input type="date" name="date" id="date">
+            </div>
+            
+            <br><br>
+
+            <!-- 자기소개 영역 -->
+            <!-- 여러 줄은 textarea로 입력한다.-->
+            <div>
+                <label for="user_info">[자기소개] : </label>
+                <textarea name="user_info" id="user_info" cols="50" rows="10"></textarea>
+            </div>
+
+            <br><br>
+
+            <!-- 버튼(button)으로 네이버 연결 영역 -->
+            <!-- 새 창(window.open)으로 연결해준다. -->
+            <div>
+                <input type="button" value="네이버 연결" onclick="javascript:window.open('https://www.naver.com')">
+            </div>
+
+            <br><br>
+
+            <!--확인(submit) 취소(reset) 버튼 영역-->
+            <div>
+                <input type="submit" value="확인">
+                <input type="reset" value="취소">
+            </div>
+        </form>
+    </body>
+</html>
